@@ -1,0 +1,6 @@
+<svg width="180" height="180" viewBox="0 0 180 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="180" height="180" rx="12" fill="#111c35"/>
+  <circle cx="90" cy="70" r="30" fill="#1a2d50"/>
+  <ellipse cx="90" cy="145" rx="45" ry="35" fill="#1a2d50"/>
+  <text x="90" y="175" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#4a6a9a">Replace with photo</text>
+</svg>

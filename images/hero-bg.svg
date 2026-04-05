@@ -1,0 +1,31 @@
+<svg width="1440" height="600" viewBox="0 0 1440 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="glow1" cx="30%" cy="40%" r="40%">
+      <stop offset="0%" stop-color="#5aaae8" stop-opacity="0.06"/>
+      <stop offset="100%" stop-color="#5aaae8" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glow2" cx="70%" cy="60%" r="35%">
+      <stop offset="0%" stop-color="#3a78c4" stop-opacity="0.04"/>
+      <stop offset="100%" stop-color="#3a78c4" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1440" height="600" fill="transparent"/>
+  <ellipse cx="432" cy="240" rx="500" ry="300" fill="url(#glow1)"/>
+  <ellipse cx="1008" cy="360" rx="400" ry="250" fill="url(#glow2)"/>
+  <!-- Subtle grid dots -->
+  <g opacity="0.08" fill="#5aaae8">
+    <circle cx="120" cy="100" r="1"/><circle cx="240" cy="100" r="1"/><circle cx="360" cy="100" r="1"/><circle cx="480" cy="100" r="1"/><circle cx="600" cy="100" r="1"/><circle cx="720" cy="100" r="1"/><circle cx="840" cy="100" r="1"/><circle cx="960" cy="100" r="1"/><circle cx="1080" cy="100" r="1"/><circle cx="1200" cy="100" r="1"/><circle cx="1320" cy="100" r="1"/>
+    <circle cx="120" cy="200" r="1"/><circle cx="240" cy="200" r="1"/><circle cx="360" cy="200" r="1"/><circle cx="480" cy="200" r="1"/><circle cx="600" cy="200" r="1"/><circle cx="720" cy="200" r="1"/><circle cx="840" cy="200" r="1"/><circle cx="960" cy="200" r="1"/><circle cx="1080" cy="200" r="1"/><circle cx="1200" cy="200" r="1"/><circle cx="1320" cy="200" r="1"/>
+    <circle cx="120" cy="300" r="1"/><circle cx="240" cy="300" r="1"/><circle cx="360" cy="300" r="1"/><circle cx="480" cy="300" r="1"/><circle cx="600" cy="300" r="1"/><circle cx="720" cy="300" r="1"/><circle cx="840" cy="300" r="1"/><circle cx="960" cy="300" r="1"/><circle cx="1080" cy="300" r="1"/><circle cx="1200" cy="300" r="1"/><circle cx="1320" cy="300" r="1"/>
+    <circle cx="120" cy="400" r="1"/><circle cx="240" cy="400" r="1"/><circle cx="360" cy="400" r="1"/><circle cx="480" cy="400" r="1"/><circle cx="600" cy="400" r="1"/><circle cx="720" cy="400" r="1"/><circle cx="840" cy="400" r="1"/><circle cx="960" cy="400" r="1"/><circle cx="1080" cy="400" r="1"/><circle cx="1200" cy="400" r="1"/><circle cx="1320" cy="400" r="1"/>
+    <circle cx="120" cy="500" r="1"/><circle cx="240" cy="500" r="1"/><circle cx="360" cy="500" r="1"/><circle cx="480" cy="500" r="1"/><circle cx="600" cy="500" r="1"/><circle cx="720" cy="500" r="1"/><circle cx="840" cy="500" r="1"/><circle cx="960" cy="500" r="1"/><circle cx="1080" cy="500" r="1"/><circle cx="1200" cy="500" r="1"/><circle cx="1320" cy="500" r="1"/>
+  </g>
+  <!-- Subtle connecting lines -->
+  <g opacity="0.04" stroke="#5aaae8" stroke-width="0.5">
+    <line x1="360" y1="200" x2="600" y2="300"/>
+    <line x1="600" y1="300" x2="840" y2="200"/>
+    <line x1="840" y1="200" x2="1080" y2="300"/>
+    <line x1="480" y1="400" x2="720" y2="300"/>
+    <line x1="720" y1="300" x2="960" y2="400"/>
+  </g>
+</svg>

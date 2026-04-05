@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Konfig — Cognisn</title>
+    <meta name="description" content="Konfig — Layered settings management, pluggable secrets, and structured logging for Python applications.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 130 130'%3E%3Crect width='130' height='130' rx='28' fill='%23080e1e'/%3E%3Cdefs%3E%3ClinearGradient id='a' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0%25' stop-color='%233a78c4'/%3E%3Cstop offset='50%25' stop-color='%235aaae8'/%3E%3Cstop offset='100%25' stop-color='%233a78c4'/%3E%3C/linearGradient%3E%3CradialGradient id='b' cx='40%25' cy='35%25' r='60%25'%3E%3Cstop offset='0%25' stop-color='%237ac0f8'/%3E%3Cstop offset='100%25' stop-color='%234a90d8'/%3E%3C/radialGradient%3E%3C/defs%3E%3Cg transform='translate(65,65)'%3E%3Cpath d='M32-48A48 48 0 1 0 32 48' stroke='url(%23a)' stroke-width='4' fill='none' stroke-linecap='round'/%3E%3Ccircle cx='32' cy='-48' r='5' fill='%236ab8f0'/%3E%3Ccircle cx='32' cy='48' r='5' fill='%235aaae8' opacity='.85'/%3E%3Ccircle cx='12' cy='0' r='9' fill='url(%23b)'/%3E%3Ccircle cx='12' cy='0' r='4.5' fill='%23a0d8ff' opacity='.9'/%3E%3C/g%3E%3C/svg%3E">
+
+    <link rel="stylesheet" href="../css/theme.css">
+    <link rel="stylesheet" href="../css/site.css">
+</head>
+<body>
+
+    <nav class="site-nav">
+        <div class="container">
+            <a href="/" class="site-nav__brand">
+                <svg width="110" height="28" viewBox="0 0 440 110" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="arc-n" x1="0" y1="0" x2="1" y2="1">
+                            <stop offset="0%" stop-color="#3a78c4"/>
+                            <stop offset="50%" stop-color="#5aaae8"/>
+                            <stop offset="100%" stop-color="#3a78c4"/>
+                        </linearGradient>
+                        <radialGradient id="dot-n" cx="40%" cy="35%" r="60%">
+                            <stop offset="0%" stop-color="#7ac0f8"/>
+                            <stop offset="100%" stop-color="#4a90d8"/>
+                        </radialGradient>
+                    </defs>
+                    <g transform="translate(55,55)">
+                        <line x1="-55" y1="0" x2="-36" y2="0" stroke="#4a8abf" stroke-width="0.7" opacity="0.3"/>
+                        <line x1="36" y1="0" x2="80" y2="0" stroke="#4a8abf" stroke-width="0.7" opacity="0.15"/>
+                        <line x1="0" y1="0" x2="26" y2="-33" stroke="#4a8abf" stroke-width="0.7" opacity="0.22"/>
+                        <line x1="0" y1="0" x2="26" y2="33" stroke="#4a8abf" stroke-width="0.7" opacity="0.22"/>
+                        <path d="M25 -38 A38 38 0 1 0 25 38" stroke="url(#arc-n)" stroke-width="3" fill="none" stroke-linecap="round"/>
+                        <circle cx="25" cy="-38" r="3.5" fill="#6ab8f0"/>
+                        <circle cx="25" cy="38" r="3.5" fill="#5aaae8" opacity="0.85"/>
+                        <circle cx="10" cy="0" r="7" fill="url(#dot-n)"/>
+                        <circle cx="10" cy="0" r="3.5" fill="#a0d8ff" opacity="0.9"/>
+                    </g>
+                    <text x="108" y="70" font-family="'Syne', sans-serif" font-weight="600" font-size="54" fill="#5a9fd4" letter-spacing="-0.5">cognisn</text>
+                </svg>
+            </a>
+            <button class="site-nav__toggle" aria-label="Toggle navigation">&#9776;</button>
+            <ul class="site-nav__links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/projects.html" class="active">Projects</a></li>
+                <li><a href="/blog/">Blog</a></li>
+                <li><a href="/about.html">About</a></li>
+                <li><a href="/contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <div class="article" style="max-width: 840px;">
+            <!-- Project Header -->
+            <div class="article__header">
+                <p class="section-label"><a href="/projects.html" style="color: inherit; text-decoration: none;">&larr; Projects</a></p>
+                <h1 class="article__title">Konfig</h1>
+                <p style="font-size: 1.0625rem; color: var(--app-text-secondary); margin-bottom: 1.25rem;">Three foundational capabilities every Python application needs — settings management, pluggable secrets, and structured logging — with an optional lightweight app lifecycle context manager that ties them together.</p>
+                <div class="card__tags" style="margin-bottom: 1rem;">
+                    <span class="tag">Python</span>
+                    <span class="tag">Configuration</span>
+                    <span class="tag">Secrets</span>
+                    <span class="tag">Logging</span>
+                    <span class="tag">MIT</span>
+                </div>
+                <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                    <a href="https://github.com/Cognisn/konfig" target="_blank" rel="noopener" class="btn btn-primary">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                        View on GitHub
+                    </a>
+                    <a href="#installation" class="btn btn-outline">Install</a>
+                </div>
+            </div>
+
+            <!-- Content -->
+            <div class="article__body">
+
+                <h2>Overview</h2>
+                <p>Konfig is a clean-sheet Python library that bundles the three things almost every application needs: configuration, secrets, and logging. Instead of wiring together multiple packages and writing boilerplate, Konfig gives you a single, consistent interface with sensible defaults and platform-aware behaviour out of the box.</p>
+                <p>Each subsystem works independently or together via the <code>AppContext</code> lifecycle manager — no inheritance required.</p>
+
+                <h2>Features</h2>
+
+                <h3>Settings Management</h3>
+                <ul>
+                    <li><strong>Layered precedence</strong> — system, user, environment, and runtime levels with automatic merging</li>
+                    <li><strong>Persistent writes</strong> — save settings back to disk at any layer</li>
+                    <li><strong>Dot-notation access</strong> — <code>ctx.settings.get("database.host", "localhost")</code></li>
+                    <li><strong>Platform-aware paths</strong> — config, data, and log directories resolve correctly on macOS, Linux, and Windows</li>
+                </ul>
+
+                <h3>Secrets Handling</h3>
+                <ul>
+                    <li><strong>Pluggable backends</strong> — choose the right storage for your environment:
+                        <ul>
+                            <li><strong>OS Keyring</strong> — native credential storage (macOS Keychain, Windows Credential Locker, Linux Secret Service)</li>
+                            <li><strong>AES-encrypted file</strong> — portable, encrypted secrets file</li>
+                            <li><strong>AWS Secrets Manager</strong> — cloud-native secrets for deployed applications</li>
+                        </ul>
+                    </li>
+                    <li><strong>Custom backends</strong> — implement your own with a simple interface</li>
+                    <li><strong>Consistent API</strong> — <code>ctx.secrets.get("api_key")</code> regardless of backend</li>
+                </ul>
+
+                <h3>Structured Logging</h3>
+                <ul>
+                    <li><strong>Run-scoped log files</strong> — each application run gets its own log file with automatic historical retention</li>
+                    <li><strong>JSON output mode</strong> — structured logs for machine consumption</li>
+                    <li><strong>Safe stdio handling</strong> — graceful fallback when stdout/stderr are unavailable</li>
+                    <li><strong>Configurable levels</strong> — per-logger granularity</li>
+                </ul>
+
+                <h3>App Lifecycle</h3>
+                <ul>
+                    <li><strong>Context manager</strong> — sync and async support via <code>with</code> / <code>async with</code></li>
+                    <li><strong>No inheritance</strong> — just wrap your code, no base class required</li>
+                    <li><strong>Automatic cleanup</strong> — resources are properly released on exit</li>
+                </ul>
+
+                <h2 id="installation">Installation</h2>
+
+                <p>Requires <strong>Python 3.10+</strong>.</p>
+
+                <!-- Dynamic releases widget — populated by CognisReleases -->
+                <div id="konfig-releases"></div>
+
+                <h2>Quick Start</h2>
+
+                <p>Use all three subsystems together via <code>AppContext</code>:</p>
+
+                <pre><code>from konfig import AppContext
+
+with AppContext(name="My Application", version="1.0.0") as ctx:
+    # Settings — layered, with defaults
+    host = ctx.settings.get("database.host", "localhost")
+    port = ctx.settings.get("database.port", 5432)
+
+    # Secrets — backend-agnostic
+    api_key = ctx.secrets.get("api_key")
+
+    # Logging — already configured
+    ctx.log.info("Application started", host=host)</code></pre>
+
+                <p>Or use each subsystem independently:</p>
+
+                <pre><code>from konfig import Settings, Secrets, LogManager
+
+# Just settings
+settings = Settings(app_name="my-app")
+db_host = settings.get("database.host", "localhost")
+
+# Just secrets
+secrets = Secrets(app_name="my-app")
+token = secrets.get("github_token")</code></pre>
+
+                <h3>Async Support</h3>
+
+                <pre><code>from konfig import AppContext
+
+async with AppContext(name="My Server", version="2.0.0") as ctx:
+    api_key = ctx.secrets.get("api_key")
+    ctx.log.info("Server ready")</code></pre>
+
+                <h2>Platform Paths</h2>
+                <p>Konfig automatically uses the right directories for each platform:</p>
+                <ul>
+                    <li><strong>macOS:</strong> <code>~/Library/Application Support/&lt;app&gt;/</code></li>
+                    <li><strong>Linux:</strong> <code>~/.config/&lt;app&gt;/</code> (XDG compliant)</li>
+                    <li><strong>Windows:</strong> <code>%APPDATA%/&lt;app&gt;/</code></li>
+                </ul>
+
+                <h2>Licence</h2>
+                <p>MIT Licence — free for any use.</p>
+
+                <hr>
+
+                <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                    <a href="https://github.com/Cognisn/konfig" target="_blank" rel="noopener" class="btn btn-primary">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                        View on GitHub
+                    </a>
+                    <a href="https://github.com/Cognisn/konfig/issues" target="_blank" rel="noopener" class="btn btn-outline">Report an Issue</a>
+                    <a href="/projects.html" class="btn btn-outline">&larr; All Projects</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            &copy; 2026 Cognisn. All rights reserved.
+        </div>
+    </footer>
+
+    <script src="../js/site.js"></script>
+    <script src="../js/releases.js"></script>
+    <script>
+        CognisReleases.init({
+            repo: 'Cognisn/konfig',
+            container: '#konfig-releases',
+            pypi: 'konfig',
+            pypiExtras: ['aws']
+            // No platforms — PyPI-only project
+        });
+    </script>
+</body>
+</html>
