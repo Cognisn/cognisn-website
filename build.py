@@ -55,9 +55,9 @@ SITE_URL = "https://cognisn.com"
 # then update these values.
 
 GISCUS_REPO = "Cognisn/cognisn-website"
-GISCUS_REPO_ID = ""       # Fill in from https://giscus.app
+GISCUS_REPO_ID = "R_kgDOR1K7rQ"
 GISCUS_CATEGORY = "General"
-GISCUS_CATEGORY_ID = ""   # Fill in from https://giscus.app
+GISCUS_CATEGORY_ID = "DIC_kwDOR1K7rc4C6GqH"
 
 
 # ── Shared HTML fragments ────────────────────────────────────────────────
