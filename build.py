@@ -186,9 +186,7 @@ def generate_article_html(post):
     """Generate a full HTML page for a blog article."""
     tags_html = "".join(f'<span class="tag">{t}</span>' for t in post["tags"])
 
-    og_image = ""
-    # Uncomment when you have an OG image:
-    # og_image = f'<meta property="og:image" content="{SITE_URL}/images/og-card.png">'
+    og_image = f'<meta property="og:image" content="{SITE_URL}/images/og-card.png">'
 
     giscus_html = ""
     if GISCUS_REPO_ID and GISCUS_CATEGORY_ID:
@@ -362,6 +360,37 @@ def update_home_page(posts):
         print("  SKIP home page — blog section marker not found")
 
 
+def update_sitemap(posts):
+    """Append blog post URLs to sitemap.xml."""
+    sitemap_path = ROOT / "sitemap.xml"
+    if not sitemap_path.exists():
+        return
+
+    xml = sitemap_path.read_text(encoding="utf-8")
+
+    # Remove any existing blog post entries (between markers)
+    xml = re.sub(r'\n  <!-- blog posts -->.*?<!-- /blog posts -->', '', xml, flags=re.DOTALL)
+
+    # Remove closing tag, we'll re-add it
+    xml = xml.replace('</urlset>', '').rstrip()
+
+    # Add blog post entries
+    entries = '\n  <!-- blog posts -->'
+    for post in posts:
+        entries += f'''
+  <url>
+    <loc>{SITE_URL}{post["url"]}</loc>
+    <lastmod>{post["date_iso"]}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>'''
+    entries += '\n  <!-- /blog posts -->'
+
+    xml += entries + '\n</urlset>\n'
+    sitemap_path.write_text(xml, encoding="utf-8")
+    print(f"  Updated sitemap with {len(posts)} blog post(s)")
+
+
 # ── Main ──────────────────────────────────────────────────────────────────
 
 def build():
@@ -403,6 +432,9 @@ def build():
     if sample.exists() and not (POSTS_DIR / "sample-article.md").exists():
         sample.unlink()
         print("  Removed orphaned sample-article.html")
+
+    # Update sitemap with blog posts
+    update_sitemap(posts)
 
     print(f"Done — {len(posts)} article(s) published")
 

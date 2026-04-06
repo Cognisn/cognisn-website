@@ -63,13 +63,12 @@
             <div class="article__header">
                 <p class="section-label"><a href="/projects.html" style="color: inherit; text-decoration: none;">&larr; Projects</a></p>
                 <h1 class="article__title">Spark</h1>
-                <p style="font-size: 1.0625rem; color: var(--app-text-secondary); margin-bottom: 1.25rem;">A secure, multi-provider AI research platform with a modern web interface. Chat with Claude, Gemini, Grok, Llama, and Mistral — with MCP tool integration, persistent memory, and autonomous scheduled actions.</p>
+                <p style="font-size: 1.0625rem; color: var(--app-text-secondary); margin-bottom: 1.25rem;">A secure, multi-provider AI research platform with a modern web interface. Chat with Claude, Gemini, Grok, Llama, and Mistral — with MCP tool integration, voice input, persistent memory, and autonomous scheduled actions.</p>
                 <div class="card__tags" style="margin-bottom: 1rem;">
                     <span class="tag">Python</span>
                     <span class="tag">FastAPI</span>
                     <span class="tag">AI</span>
                     <span class="tag">MCP</span>
-                    <span class="tag">Alpha</span>
                 </div>
                 <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
                     <a href="https://github.com/Cognisn/spark" target="_blank" rel="noopener" class="btn btn-primary">
@@ -84,64 +83,105 @@
             <div class="article__body">
 
                 <h2>Overview</h2>
-                <p>Spark is a personal AI research kit that brings together multiple LLM providers under a single, clean web interface. Rather than switching between different AI chat services, Spark lets you work with all of them in one place — with powerful additions like tool use, persistent memory, and scheduled autonomous actions.</p>
-                <p>It's built with security in mind: API keys are stored in your OS keychain (never in config files), tool usage requires explicit permission, and a prompt inspection system watches for potential threats.</p>
+                <p>Spark is a personal AI research kit that brings together multiple LLM providers under a single, clean web interface. Rather than switching between different AI chat services, Spark lets you work with all of them in one place — with powerful additions like tool use, voice input, persistent memory, and scheduled autonomous actions.</p>
+                <p>It's built with security in mind: API keys are stored in your OS keychain (never in config files), tool usage requires explicit permission, and a prompt inspection system watches for potential threats. Spark is rated all A's by SonarCloud — zero bugs, zero vulnerabilities, zero security hotspots — and backed by 398 automated tests across 19 test files.</p>
 
                 <h2>Supported Providers</h2>
                 <ul>
-                    <li><strong>Anthropic</strong> — Claude models</li>
-                    <li><strong>AWS Bedrock</strong> — Managed Claude, Llama, Mistral, and more</li>
-                    <li><strong>Google Gemini</strong> — Gemini models</li>
-                    <li><strong>Ollama</strong> — Local models (Llama, Mistral, etc.)</li>
-                    <li><strong>X.AI</strong> — Grok models</li>
+                    <li><strong>Anthropic</strong> — Claude models with prompt caching support and cache stats display</li>
+                    <li><strong>AWS Bedrock</strong> — Claude and other foundation models via AWS</li>
+                    <li><strong>Google Gemini</strong> — Dynamic model discovery from the Gemini API</li>
+                    <li><strong>Ollama</strong> — Local models with automatic model detection</li>
+                    <li><strong>X.AI</strong> — Grok models via OpenAI-compatible API</li>
                 </ul>
+                <p>All providers support dynamic model discovery with caching and static fallback, plus transient error retry with exponential backoff.</p>
 
                 <h2>Features</h2>
 
                 <h3>Conversations</h3>
                 <ul>
                     <li>Real-time token streaming via Server-Sent Events</li>
-                    <li>Dark and light theme with persistent preferences</li>
-                    <li>LLM-driven context compaction when approaching token limits</li>
-                    <li>Cross-conversation context sharing and linking</li>
-                    <li>Favourites for quick access to important conversations</li>
+                    <li>Intelligent context compaction with LLM-driven summarisation</li>
+                    <li>Conversation linking for shared context across conversations</li>
+                    <li>RAG retrieval from compacted history</li>
+                    <li>Per-conversation settings: model, instructions, RAG, compaction thresholds</li>
+                    <li>Model badge on each response showing which model generated it</li>
+                    <li>Model selector modal with search, grouping by provider, and tool support indicators</li>
+                    <li>Favourites with star toggle</li>
+                    <li>Export as Markdown, HTML, CSV, or JSON</li>
                 </ul>
 
                 <h3>Tools &amp; MCP Integration</h3>
                 <ul>
-                    <li>Full <strong>Model Context Protocol</strong> support via stdio, HTTP, or SSE</li>
-                    <li>Built-in tools for filesystem access, document processing (Word, Excel, PDF, PowerPoint), web search, and archive handling</li>
-                    <li>Per-conversation tool enable/disable controls</li>
-                    <li>First-use permission prompts with granular approval</li>
+                    <li><strong>Tool Activity Sidecar Panel</strong> — dedicated right-side panel for tool calls with timestamps, expandable parameters and results</li>
+                    <li>Full <strong>Model Context Protocol</strong> support via stdio, HTTP streamable, and SSE transports with hot-reload</li>
+                    <li><strong>Built-in tools:</strong> filesystem (read/write), documents (Word, Excel, PDF, PowerPoint), archives (ZIP, TAR), web search/fetch, datetime</li>
+                    <li><strong>Web search engines:</strong> DuckDuckGo (default, no API key), Brave Search, Google (SerpAPI), Bing (Azure), SearXNG (self-hosted)</li>
+                    <li>22 built-in tool documentation files with a <code>get_tool_documentation</code> tool for LLM self-reference</li>
+                    <li>Per-conversation tool enable/disable for embedded and MCP tools</li>
+                    <li>Tool permission system with Allow Once, Always Allow, and Deny</li>
+                    <li>Category-based approval (approving web_search also approves web_fetch)</li>
+                </ul>
+
+                <h3>Voice</h3>
+                <ul>
+                    <li><strong>Speech-to-text input</strong> — mic button for manual dictation</li>
+                    <li><strong>Voice Conversation Mode</strong> — full hands-free operation via headset button</li>
+                    <li>Auto-send after 1.5 second silence, TTS reads the response, then auto-resumes listening</li>
+                    <li>Voice selector dropdown with all available browser TTS voices (persisted)</li>
                 </ul>
 
                 <h3>Persistent Memory</h3>
                 <ul>
-                    <li>Stores facts, preferences, project context, instructions, and relationships</li>
-                    <li>Vector embedding-based semantic search for relevant recall</li>
-                    <li>Automatic memory injection into conversation context</li>
+                    <li>Semantic vector search via sentence-transformers embeddings</li>
+                    <li>Categories: facts, preferences, projects, instructions, relationships</li>
+                    <li>Auto-retrieval of relevant memories injected into conversation context</li>
+                    <li>Proactive memory storage when you share information</li>
+                    <li>Memory management page with stats, edit, delete, and bulk delete</li>
+                    <li>Import/export as JSON</li>
                 </ul>
 
                 <h3>Autonomous Actions</h3>
                 <ul>
-                    <li>Schedule tasks on cron or one-off schedules via APScheduler</li>
-                    <li>AI-assisted action creation</li>
-                    <li>Background daemon with system tray support (macOS/Windows)</li>
-                    <li>Full execution history tracking</li>
+                    <li>Scheduled AI tasks with cron or one-off schedules</li>
+                    <li>AI-assisted action creation — describe what you want, Spark builds it</li>
+                    <li>Context modes: fresh (clean each run) or cumulative (previous results in prompt)</li>
+                    <li>Failure tracking with auto-disable after threshold</li>
+                    <li>Run history with status, results, and token usage</li>
+                    <li>System tray daemon with stats polling (macOS, Windows)</li>
+                </ul>
+
+                <h3>Web Interface</h3>
+                <ul>
+                    <li>Cognisn design system (Bootstrap 5.3, dark/light theme with persistence)</li>
+                    <li>Dashboard with provider status cards and clickable provider models modal</li>
+                    <li>Settings page with providers, database, interface, conversation, security, tools, and MCP configuration</li>
+                    <li>Global system instructions</li>
+                    <li>Settings lock with password protection</li>
+                    <li>Built-in searchable user guide</li>
+                    <li>Auto-update checker with rendered release notes and download link</li>
                 </ul>
 
                 <h3>Security</h3>
                 <ul>
-                    <li>API keys stored in OS keychain — never in config files</li>
-                    <li>Pattern and keyword-based threat detection on prompts</li>
-                    <li>Password-protectable settings page</li>
+                    <li>API keys stored in OS keychain via <a href="/projects/konfig.html">Konfig</a> — never in config files</li>
+                    <li>Prompt inspection with pattern matching (injection, jailbreak, PII detection)</li>
+                    <li>Configurable security levels: basic, standard, or strict</li>
+                    <li>Configurable actions: block, warn, or log only</li>
+                    <li>Session-based authentication with HTTPOnly, SameSite, Secure cookies</li>
                     <li>Per-conversation, per-tool permission system</li>
+                </ul>
+
+                <h3>Database</h3>
+                <ul>
+                    <li>SQLite (default), MySQL, PostgreSQL, and MSSQL</li>
+                    <li>Idempotent schema with automatic migrations</li>
                 </ul>
 
                 <!-- Screenshots -->
                 <h2>Screenshots</h2>
                 <div class="screenshot-grid">
-                    <!-- RECOMMENDED SCREENSHOTS — replace src with actual images -->
+                    <!-- Replace src with actual screenshots from Spark -->
                     <figure class="screenshot">
                         <img src="/images/spark/conversation-dark.png" alt="Spark conversation interface in dark mode">
                         <figcaption>Conversation view — dark theme with streaming response</figcaption>
@@ -149,6 +189,14 @@
                     <figure class="screenshot">
                         <img src="/images/spark/conversation-light.png" alt="Spark conversation interface in light mode">
                         <figcaption>Conversation view — light theme</figcaption>
+                    </figure>
+                    <figure class="screenshot">
+                        <img src="/images/spark/dashboard.png" alt="Spark dashboard with provider status">
+                        <figcaption>Dashboard — provider status cards with model counts</figcaption>
+                    </figure>
+                    <figure class="screenshot">
+                        <img src="/images/spark/tool-sidecar.png" alt="Tool activity sidecar panel">
+                        <figcaption>Tool Activity Sidecar — expandable tool calls with parameters and results</figcaption>
                     </figure>
                     <figure class="screenshot">
                         <img src="/images/spark/tools-mcp.png" alt="MCP tool integration panel">
@@ -170,7 +218,7 @@
 
                 <h2 id="installation">Download &amp; Install</h2>
 
-                <p>Spark ships with pre-built installers that include a bundled Python runtime — no dependencies required. Just download and run. Alternatively, install from PyPI if you prefer to manage your own Python environment.</p>
+                <p>Spark ships with pre-built installers that include a bundled Python runtime — no dependencies required. Available as a signed DMG for macOS (ARM64 and Intel), an NSIS installer for Windows, and via pip for Linux. Alternatively, install from PyPI on any platform if you prefer to manage your own Python environment.</p>
 
                 <!-- Dynamic releases widget — populated by CognisReleases -->
                 <div id="spark-releases"></div>
@@ -201,6 +249,10 @@
 
                 <h2>Architecture</h2>
                 <p>Spark is built on <strong>FastAPI</strong> with a Bootstrap 5 frontend using the Cognisn design system. The backend manages conversation context with compaction and memory retrieval, routes requests to LLM providers, and orchestrates MCP servers and built-in tools. Settings and secrets management is handled by <a href="/projects/konfig.html">Konfig</a>.</p>
+                <p>Supports SQLite (default), MySQL, PostgreSQL, and MSSQL with idempotent schema and automatic migrations. macOS installers are signed and notarized. Distributed via PyApp with a Cognisn fork splash screen.</p>
+
+                <h2>Documentation</h2>
+                <p>Spark includes 16 comprehensive built-in docs (with Mermaid diagrams) covering installation, configuration, providers, conversations, tools, MCP, memory, actions, voice, web search, security, auto-update, architecture, development, and API reference. A searchable user guide is also accessible directly from within the application.</p>
 
                 <h2>Licence</h2>
                 <p>MIT Licence with Commons Clause — free for personal and educational use. Commercial use requires a licence from the author.</p>
@@ -226,6 +278,7 @@
     </footer>
 
     <script src="../js/site.js"></script>
+    <script src="../js/lightbox.js"></script>
     <script src="../js/releases.js"></script>
     <script>
         CognisReleases.init({
