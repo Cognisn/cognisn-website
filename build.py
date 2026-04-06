@@ -23,11 +23,15 @@ Post format (blog/posts/my-article.md):
 The filename (minus .md) becomes the URL slug: /blog/my-article.html
 """
 
+import hashlib
+import json
 import os
 import re
 import sys
 from datetime import datetime
 from pathlib import Path
+from urllib.request import Request, urlopen
+from urllib.error import URLError
 
 try:
     import markdown
@@ -48,6 +52,9 @@ INDEX_HTML = ROOT / "index.html"
 BLOG_INDEX_HTML = BLOG_OUT_DIR / "index.html"
 
 SITE_URL = "https://cognisn.com"
+
+INDEXNOW_KEY = "4c7ff67b25804a63baffd2d37aeb9125"
+INDEXNOW_MANIFEST = ROOT / ".indexnow-manifest.json"
 
 
 # ── Giscus config ────────────────────────────────────────────────────────
@@ -221,12 +228,24 @@ def generate_article_html(post):
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{post["title"]} — Cognisn Blog</title>
     <meta name="description" content="{post["description"]}">
+    <link rel="canonical" href="{SITE_URL}{post["url"]}">
 
     <meta property="og:title" content="{post["title"]}">
     <meta property="og:description" content="{post["description"]}">
     <meta property="og:type" content="article">
     <meta property="og:url" content="{SITE_URL}{post["url"]}">
+    <meta property="og:locale" content="en_AU">
+    <meta property="og:site_name" content="Cognisn">
     {og_image}
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{post["title"]}">
+    <meta name="twitter:description" content="{post["description"]}">
+    <meta name="twitter:image" content="{SITE_URL}{og_img_path}">
+
+    <script type="application/ld+json">
+{jsonld_blog_posting(post)}
+    </script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -299,6 +318,20 @@ def generate_blog_index(posts):
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog — Cognisn</title>
     <meta name="description" content="Articles, announcements, and technical writing from Cognisn.">
+    <link rel="canonical" href="{SITE_URL}/blog/">
+
+    <meta property="og:title" content="Blog — Cognisn">
+    <meta property="og:description" content="Articles, announcements, and technical writing from Cognisn.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{SITE_URL}/blog/">
+    <meta property="og:locale" content="en_AU">
+    <meta property="og:site_name" content="Cognisn">
+    <meta property="og:image" content="{SITE_URL}/images/og-card.png">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Blog — Cognisn">
+    <meta name="twitter:description" content="Articles, announcements, and technical writing from Cognisn.">
+    <meta name="twitter:image" content="{SITE_URL}/images/og-card.png">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -393,6 +426,120 @@ def update_sitemap(posts):
     print(f"  Updated sitemap with {len(posts)} blog post(s)")
 
 
+# ── JSON-LD structured data ──────────────────────────────────────────────
+
+def jsonld_organisation():
+    """Return the shared Cognisn Organisation schema."""
+    return {
+        "@type": "Organization",
+        "@id": f"{SITE_URL}/#organization",
+        "name": "Cognisn",
+        "url": SITE_URL,
+        "logo": f"{SITE_URL}/images/og-card.png",
+        "sameAs": [
+            "https://github.com/Cognisn",
+            "https://www.linkedin.com/in/mattheww3/",
+        ],
+    }
+
+
+def jsonld_website():
+    """Return WebSite schema for the homepage."""
+    return json.dumps({
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Cognisn",
+        "url": SITE_URL,
+        "description": "Open-source projects, articles, and development by an independent software developer.",
+        "publisher": jsonld_organisation(),
+    }, indent=2)
+
+
+def jsonld_blog_posting(post):
+    """Return BlogPosting schema for a blog article."""
+    return json.dumps({
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": post["title"],
+        "description": post["description"],
+        "datePublished": post["date_iso"],
+        "dateModified": post["date_iso"],
+        "author": {
+            "@type": "Person",
+            "name": post["author"],
+            "url": "https://www.linkedin.com/in/mattheww3/",
+        },
+        "publisher": jsonld_organisation(),
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": f"{SITE_URL}{post['url']}",
+        },
+        "image": f"{SITE_URL}{post['og_image'] if post['og_image'] else '/images/og-card.png'}",
+        "keywords": post["tags"],
+    }, indent=2)
+
+
+# ── IndexNow ─────────────────────────────────────────────────────────────
+
+def _content_hash(filepath):
+    """Return an MD5 hex digest of a file's contents."""
+    return hashlib.md5(filepath.read_bytes()).hexdigest()
+
+
+def submit_indexnow(built_files):
+    """Submit changed URLs to IndexNow (Bing/Yandex/etc.).
+
+    Compares content hashes against a manifest from the previous build and
+    only submits URLs whose content has actually changed.
+    """
+    # Load previous manifest
+    prev = {}
+    if INDEXNOW_MANIFEST.exists():
+        try:
+            prev = json.loads(INDEXNOW_MANIFEST.read_text(encoding="utf-8"))
+        except (json.JSONDecodeError, OSError):
+            prev = {}
+
+    # Build new manifest and collect changed URLs
+    new_manifest = {}
+    changed_urls = []
+    for filepath, url in built_files:
+        h = _content_hash(filepath)
+        new_manifest[str(filepath)] = h
+        if prev.get(str(filepath)) != h:
+            changed_urls.append(f"{SITE_URL}{url}")
+
+    # Save updated manifest
+    INDEXNOW_MANIFEST.write_text(
+        json.dumps(new_manifest, indent=2), encoding="utf-8"
+    )
+
+    if not changed_urls:
+        print("  IndexNow: no content changes detected — skipping")
+        return
+
+    # Submit to IndexNow via Bing
+    payload = json.dumps({
+        "host": "cognisn.com",
+        "key": INDEXNOW_KEY,
+        "keyLocation": f"{SITE_URL}/{INDEXNOW_KEY}.txt",
+        "urlList": changed_urls,
+    }).encode("utf-8")
+
+    req = Request(
+        "https://api.indexnow.org/indexnow",
+        data=payload,
+        headers={"Content-Type": "application/json; charset=utf-8"},
+        method="POST",
+    )
+
+    try:
+        with urlopen(req, timeout=10) as resp:
+            print(f"  IndexNow: submitted {len(changed_urls)} URL(s) — HTTP {resp.status}")
+    except URLError as exc:
+        print(f"  IndexNow: submission failed — {exc}")
+
+
 # ── Main ──────────────────────────────────────────────────────────────────
 
 def build():
@@ -416,18 +563,24 @@ def build():
     # Sort by date descending (newest first)
     posts.sort(key=lambda p: p["date"], reverse=True)
 
+    # Track built files for IndexNow
+    built_files = []
+
     # Generate article pages
     for post in posts:
         out_path = BLOG_OUT_DIR / f"{post['slug']}.html"
         out_path.write_text(generate_article_html(post), encoding="utf-8")
+        built_files.append((out_path, post["url"]))
         print(f"  Built {out_path.relative_to(ROOT)}")
 
     # Generate blog listing
     BLOG_INDEX_HTML.write_text(generate_blog_index(posts), encoding="utf-8")
+    built_files.append((BLOG_INDEX_HTML, "/blog/"))
     print(f"  Built {BLOG_INDEX_HTML.relative_to(ROOT)}")
 
     # Update home page
     update_home_page(posts)
+    built_files.append((INDEX_HTML, "/"))
 
     # Clean up old sample article if it exists
     sample = BLOG_OUT_DIR / "sample-article.html"
@@ -437,6 +590,9 @@ def build():
 
     # Update sitemap with blog posts
     update_sitemap(posts)
+
+    # Notify search engines via IndexNow
+    submit_indexnow(built_files)
 
     print(f"Done — {len(posts)} article(s) published")
 
