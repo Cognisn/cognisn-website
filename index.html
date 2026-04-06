@@ -3,121 +3,178 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cognisn — Coming Soon</title>
-    <meta name="description" content="Cognisn — Coming Soon">
-    <meta name="robots" content="noindex, nofollow">
+    <title>Cognisn — Open Source Software & Development</title>
+    <meta name="description" content="Cognisn — Open source projects, articles, and development by an independent software developer.">
+    <meta property="og:title" content="Cognisn — Open Source Software & Development">
+    <meta property="og:description" content="Open-source tools, built on the side, shared with everyone.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://cognisn.com/">
+    <meta property="og:image" content="https://cognisn.com/images/og-card.png">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 
-    <!-- Favicon (inline SVG) -->
+    <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 130 130'%3E%3Crect width='130' height='130' rx='28' fill='%23080e1e'/%3E%3Cdefs%3E%3ClinearGradient id='a' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0%25' stop-color='%233a78c4'/%3E%3Cstop offset='50%25' stop-color='%235aaae8'/%3E%3Cstop offset='100%25' stop-color='%233a78c4'/%3E%3C/linearGradient%3E%3CradialGradient id='b' cx='40%25' cy='35%25' r='60%25'%3E%3Cstop offset='0%25' stop-color='%237ac0f8'/%3E%3Cstop offset='100%25' stop-color='%234a90d8'/%3E%3C/radialGradient%3E%3C/defs%3E%3Cg transform='translate(65,65)'%3E%3Cpath d='M32-48A48 48 0 1 0 32 48' stroke='url(%23a)' stroke-width='4' fill='none' stroke-linecap='round'/%3E%3Ccircle cx='32' cy='-48' r='5' fill='%236ab8f0'/%3E%3Ccircle cx='32' cy='48' r='5' fill='%235aaae8' opacity='.85'/%3E%3Ccircle cx='12' cy='0' r='9' fill='url(%23b)'/%3E%3Ccircle cx='12' cy='0' r='4.5' fill='%23a0d8ff' opacity='.9'/%3E%3C/g%3E%3C/svg%3E">
 
-    <style>
-        *, *::before, *::after {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: linear-gradient(135deg, #080e1e 0%, #0c1428 50%, #080e1e 100%);
-            background-attachment: fixed;
-            color: #e8f0fa;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-        }
-
-        .container {
-            text-align: center;
-            padding: 2rem;
-        }
-
-        .logo {
-            margin-bottom: 3rem;
-        }
-
-        .logo svg {
-            width: min(440px, 85vw);
-            height: auto;
-        }
-
-        .coming-soon {
-            font-family: 'DM Sans', sans-serif;
-            font-size: clamp(0.875rem, 2vw, 1.125rem);
-            font-weight: 400;
-            letter-spacing: 0.25em;
-            text-transform: uppercase;
-            color: rgba(232, 240, 250, 0.4);
-        }
-
-        /* Subtle glow animation on the arc */
-        @keyframes pulse-glow {
-            0%, 100% { filter: drop-shadow(0 0 6px rgba(90, 170, 232, 0.2)); }
-            50%      { filter: drop-shadow(0 0 18px rgba(90, 170, 232, 0.45)); }
-        }
-
-        .logo svg {
-            animation: pulse-glow 4s ease-in-out infinite;
-        }
-    </style>
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/theme.css">
+    <link rel="stylesheet" href="css/site.css">
 </head>
 <body>
-    <div class="container">
-        <div class="logo">
-            <svg width="440" height="110" viewBox="0 0 440 110" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <defs>
-                    <linearGradient id="arc-d" x1="0" y1="0" x2="1" y2="1">
-                        <stop offset="0%"   stop-color="#3a78c4"/>
-                        <stop offset="50%"  stop-color="#5aaae8"/>
-                        <stop offset="100%" stop-color="#3a78c4"/>
-                    </linearGradient>
-                    <radialGradient id="dot-d" cx="40%" cy="35%" r="60%">
-                        <stop offset="0%"   stop-color="#7ac0f8"/>
-                        <stop offset="100%" stop-color="#4a90d8"/>
-                    </radialGradient>
-                </defs>
 
-                <!-- Icon centred at 55,55 -->
-                <g transform="translate(55,55)">
-                    <!-- Crosshair lines -->
-                    <line x1="-55" y1="0"  x2="-36" y2="0"  stroke="#4a8abf" stroke-width="0.7" opacity="0.3"/>
-                    <line x1="36"  y1="0"  x2="80"  y2="0"  stroke="#4a8abf" stroke-width="0.7" opacity="0.15"/>
-                    <line x1="0"   y1="0"  x2="26"  y2="-33" stroke="#4a8abf" stroke-width="0.7" opacity="0.22"/>
-                    <line x1="0"   y1="0"  x2="26"  y2="33"  stroke="#4a8abf" stroke-width="0.7" opacity="0.22"/>
-
-                    <!-- C arc -->
-                    <g>
-                        <path d="M25 -38 A38 38 0 1 0 25 38"
-                              stroke="url(#arc-d)" stroke-width="3" fill="none" stroke-linecap="round"/>
-                        <!-- Arc tip dots -->
+    <!-- Navigation -->
+    <nav class="site-nav">
+        <div class="container">
+            <a href="/" class="site-nav__brand">
+                <svg width="110" height="28" viewBox="0 0 440 110" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="arc-n" x1="0" y1="0" x2="1" y2="1">
+                            <stop offset="0%" stop-color="#3a78c4"/>
+                            <stop offset="50%" stop-color="#5aaae8"/>
+                            <stop offset="100%" stop-color="#3a78c4"/>
+                        </linearGradient>
+                        <radialGradient id="dot-n" cx="40%" cy="35%" r="60%">
+                            <stop offset="0%" stop-color="#7ac0f8"/>
+                            <stop offset="100%" stop-color="#4a90d8"/>
+                        </radialGradient>
+                    </defs>
+                    <g transform="translate(55,55)">
+                        <line x1="-55" y1="0" x2="-36" y2="0" stroke="#4a8abf" stroke-width="0.7" opacity="0.3"/>
+                        <line x1="36" y1="0" x2="80" y2="0" stroke="#4a8abf" stroke-width="0.7" opacity="0.15"/>
+                        <line x1="0" y1="0" x2="26" y2="-33" stroke="#4a8abf" stroke-width="0.7" opacity="0.22"/>
+                        <line x1="0" y1="0" x2="26" y2="33" stroke="#4a8abf" stroke-width="0.7" opacity="0.22"/>
+                        <path d="M25 -38 A38 38 0 1 0 25 38" stroke="url(#arc-n)" stroke-width="3" fill="none" stroke-linecap="round"/>
                         <circle cx="25" cy="-38" r="3.5" fill="#6ab8f0"/>
-                        <circle cx="25" cy="38"  r="3.5" fill="#5aaae8" opacity="0.85"/>
+                        <circle cx="25" cy="38" r="3.5" fill="#5aaae8" opacity="0.85"/>
+                        <circle cx="10" cy="0" r="7" fill="url(#dot-n)"/>
+                        <circle cx="10" cy="0" r="3.5" fill="#a0d8ff" opacity="0.9"/>
                     </g>
-
-                    <!-- Centre dot -->
-                    <circle cx="10" cy="0" r="7"   fill="url(#dot-d)"/>
-                    <circle cx="10" cy="0" r="3.5" fill="#a0d8ff" opacity="0.9"/>
-                </g>
-
-                <!-- Wordmark -->
-                <text
-                    x="108" y="70"
-                    font-family="'Syne', sans-serif"
-                    font-weight="600"
-                    font-size="54"
-                    fill="#5a9fd4"
-                    letter-spacing="-0.5">cognisn</text>
-            </svg>
+                    <text x="108" y="70" font-family="'Syne', sans-serif" font-weight="600" font-size="54" fill="#5a9fd4" letter-spacing="-0.5">cognisn</text>
+                </svg>
+            </a>
+            <button class="site-nav__toggle" aria-label="Toggle navigation">&#9776;</button>
+            <ul class="site-nav__links">
+                <li><a href="/" class="active">Home</a></li>
+                <li><a href="/projects.html">Projects</a></li>
+                <li><a href="/blog/">Blog</a></li>
+                <li><a href="/about.html">About</a></li>
+                <li><a href="/contact.html">Contact</a></li>
+            </ul>
         </div>
+    </nav>
 
-        <p class="coming-soon">Coming Soon</p>
+    <main>
+        <!-- Hero -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero__logo">
+                    <svg width="440" height="110" viewBox="0 0 440 110" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="arc-h" x1="0" y1="0" x2="1" y2="1">
+                                <stop offset="0%" stop-color="#3a78c4"/>
+                                <stop offset="50%" stop-color="#5aaae8"/>
+                                <stop offset="100%" stop-color="#3a78c4"/>
+                            </linearGradient>
+                            <radialGradient id="dot-h" cx="40%" cy="35%" r="60%">
+                                <stop offset="0%" stop-color="#7ac0f8"/>
+                                <stop offset="100%" stop-color="#4a90d8"/>
+                            </radialGradient>
+                        </defs>
+                        <g transform="translate(55,55)">
+                            <line x1="-55" y1="0" x2="-36" y2="0" stroke="#4a8abf" stroke-width="0.7" opacity="0.3"/>
+                            <line x1="36" y1="0" x2="80" y2="0" stroke="#4a8abf" stroke-width="0.7" opacity="0.15"/>
+                            <line x1="0" y1="0" x2="26" y2="-33" stroke="#4a8abf" stroke-width="0.7" opacity="0.22"/>
+                            <line x1="0" y1="0" x2="26" y2="33" stroke="#4a8abf" stroke-width="0.7" opacity="0.22"/>
+                            <path d="M25 -38 A38 38 0 1 0 25 38" stroke="url(#arc-h)" stroke-width="3" fill="none" stroke-linecap="round"/>
+                            <circle cx="25" cy="-38" r="3.5" fill="#6ab8f0"/>
+                            <circle cx="25" cy="38" r="3.5" fill="#5aaae8" opacity="0.85"/>
+                            <circle cx="10" cy="0" r="7" fill="url(#dot-h)"/>
+                            <circle cx="10" cy="0" r="3.5" fill="#a0d8ff" opacity="0.9"/>
+                        </g>
+                        <text x="108" y="70" font-family="'Syne', sans-serif" font-weight="600" font-size="54" fill="#5a9fd4" letter-spacing="-0.5">cognisn</text>
+                    </svg>
+                </div>
+                <p class="hero__tagline">Open-source tools, built on the side, shared with everyone</p>
+                <p class="hero__subtitle">A side project by a cybersecurity professional who builds Python tools, experiments with AI, and writes about what he learns along the way.</p>
+                <div class="hero__actions">
+                    <a href="/projects.html" class="btn btn-primary">View Projects</a>
+                    <a href="/blog/" class="btn btn-outline">Read the Blog</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured projects -->
+        <section>
+            <div class="container">
+                <p class="section-label">Open Source</p>
+                <h2 class="section-title">Projects</h2>
+                <p class="section-subtitle">Free and open-source tools built by Cognisn.</p>
+                <div class="card-grid">
+                    <div class="card">
+                        <span class="card__label card__label--oss">Open Source</span>
+                        <h3 class="card__title"><a href="/projects/spark.html">Spark</a></h3>
+                        <p class="card__desc">A secure, multi-provider AI research platform with MCP tool integration, persistent memory, and autonomous scheduled actions.</p>
+                        <div class="card__tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">AI</span>
+                            <span class="tag">MCP</span>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <span class="card__label card__label--oss">Open Source</span>
+                        <h3 class="card__title"><a href="/projects/konfig.html">Konfig</a></h3>
+                        <p class="card__desc">Layered settings, pluggable secrets management, and structured logging for Python applications — with an optional lightweight lifecycle context manager.</p>
+                        <div class="card__tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">Configuration</span>
+                            <span class="tag">MIT</span>
+                        </div>
+                    </div>
+                </div>
+                <div style="margin-top: 2rem; text-align: center;">
+                    <a href="/projects.html" class="btn btn-outline">All Projects &rarr;</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Latest from the blog -->
+        <section>
+            <div class="container">
+                <p class="section-label">Latest</p>
+                <h2 class="section-title">From the Blog</h2>
+                <p class="section-subtitle">Thoughts, announcements, and technical deep-dives.</p>
+                <div class="card-grid">
+                    <div class="card">
+    <div class="card__meta" style="margin-bottom: 0.75rem;">
+        <span>6 April 2026</span>
     </div>
+    <h3 class="card__title"><a href="/blog/welcome-to-cognisn.html">Welcome to Cognisn</a></h3>
+    <p class="card__desc">Introducing Cognisn — a side project for open-source tools, AI experiments, and technical writing by a cybersecurity professional.</p>
+    <div class="card__tags"><span class="tag">Announcements</span><span class="tag">Open Source</span></div>
+</div>
+                    <div class="card">
+    <div class="card__meta" style="margin-bottom: 0.75rem;">
+        <span>6 April 2026</span>
+    </div>
+    <h3 class="card__title"><a href="/blog/spark-v0.1.0-release.html">Spark v0.1.0 — First Production Release</a></h3>
+    <p class="card__desc">Spark hits v0.1.0 — a secure, multi-provider AI research kit with voice input, MCP tools, persistent memory, and autonomous actions. Here's what's inside.</p>
+    <div class="card__tags"><span class="tag">Spark</span><span class="tag">Release</span><span class="tag">AI</span><span class="tag">Open Source</span></div>
+</div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            &copy; 2026 Cognisn. All rights reserved.
+        </div>
+    </footer>
+
+    <script src="js/site.js"></script>
 </body>
 </html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects — Cognisn</title>
+    <meta name="description" content="Open-source projects by Cognisn.">
+    <meta property="og:title" content="Projects — Cognisn">
+    <meta property="og:description" content="Open-source projects by Cognisn.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://cognisn.com/images/og-card.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 130 130'%3E%3Crect width='130' height='130' rx='28' fill='%23080e1e'/%3E%3Cdefs%3E%3ClinearGradient id='a' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0%25' stop-color='%233a78c4'/%3E%3Cstop offset='50%25' stop-color='%235aaae8'/%3E%3Cstop offset='100%25' stop-color='%233a78c4'/%3E%3C/linearGradient%3E%3CradialGradient id='b' cx='40%25' cy='35%25' r='60%25'%3E%3Cstop offset='0%25' stop-color='%237ac0f8'/%3E%3Cstop offset='100%25' stop-color='%234a90d8'/%3E%3C/radialGradient%3E%3C/defs%3E%3Cg transform='translate(65,65)'%3E%3Cpath d='M32-48A48 48 0 1 0 32 48' stroke='url(%23a)' stroke-width='4' fill='none' stroke-linecap='round'/%3E%3Ccircle cx='32' cy='-48' r='5' fill='%236ab8f0'/%3E%3Ccircle cx='32' cy='48' r='5' fill='%235aaae8' opacity='.85'/%3E%3Ccircle cx='12' cy='0' r='9' fill='url(%23b)'/%3E%3Ccircle cx='12' cy='0' r='4.5' fill='%23a0d8ff' opacity='.9'/%3E%3C/g%3E%3C/svg%3E">
+
+    <link rel="stylesheet" href="css/theme.css">
+    <link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+
+    <nav class="site-nav">
+        <div class="container">
+            <a href="/" class="site-nav__brand">
+                <svg width="110" height="28" viewBox="0 0 440 110" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="arc-n" x1="0" y1="0" x2="1" y2="1">
+                            <stop offset="0%" stop-color="#3a78c4"/>
+                            <stop offset="50%" stop-color="#5aaae8"/>
+                            <stop offset="100%" stop-color="#3a78c4"/>
+                        </linearGradient>
+                        <radialGradient id="dot-n" cx="40%" cy="35%" r="60%">
+                            <stop offset="0%" stop-color="#7ac0f8"/>
+                            <stop offset="100%" stop-color="#4a90d8"/>
+                        </radialGradient>
+                    </defs>
+                    <g transform="translate(55,55)">
+                        <line x1="-55" y1="0" x2="-36" y2="0" stroke="#4a8abf" stroke-width="0.7" opacity="0.3"/>
+                        <line x1="36" y1="0" x2="80" y2="0" stroke="#4a8abf" stroke-width="0.7" opacity="0.15"/>
+                        <line x1="0" y1="0" x2="26" y2="-33" stroke="#4a8abf" stroke-width="0.7" opacity="0.22"/>
+                        <line x1="0" y1="0" x2="26" y2="33" stroke="#4a8abf" stroke-width="0.7" opacity="0.22"/>
+                        <path d="M25 -38 A38 38 0 1 0 25 38" stroke="url(#arc-n)" stroke-width="3" fill="none" stroke-linecap="round"/>
+                        <circle cx="25" cy="-38" r="3.5" fill="#6ab8f0"/>
+                        <circle cx="25" cy="38" r="3.5" fill="#5aaae8" opacity="0.85"/>
+                        <circle cx="10" cy="0" r="7" fill="url(#dot-n)"/>
+                        <circle cx="10" cy="0" r="3.5" fill="#a0d8ff" opacity="0.9"/>
+                    </g>
+                    <text x="108" y="70" font-family="'Syne', sans-serif" font-weight="600" font-size="54" fill="#5a9fd4" letter-spacing="-0.5">cognisn</text>
+                </svg>
+            </a>
+            <button class="site-nav__toggle" aria-label="Toggle navigation">&#9776;</button>
+            <ul class="site-nav__links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/projects.html" class="active">Projects</a></li>
+                <li><a href="/blog/">Blog</a></li>
+                <li><a href="/about.html">About</a></li>
+                <li><a href="/contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <section>
+            <div class="container">
+                <p class="section-label">Open Source</p>
+                <h1 class="section-title">Projects</h1>
+                <p class="section-subtitle">Free and open-source tools built by Cognisn. All source code is available on GitHub.</p>
+
+                <div class="card-grid">
+                    <div class="card">
+                        <span class="card__label card__label--oss">Open Source</span>
+                        <h3 class="card__title"><a href="/projects/spark.html">Spark</a></h3>
+                        <p class="card__desc">A secure, multi-provider AI research platform with a modern web interface. Integrates with Anthropic, AWS Bedrock, Google Gemini, Ollama, and X.AI with MCP tool support, persistent semantic memory, and autonomous scheduled actions.</p>
+                        <div class="card__tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">FastAPI</span>
+                            <span class="tag">AI</span>
+                            <span class="tag">MCP</span>
+                        </div>
+                        <div class="card__meta">
+                            <a href="/projects/spark.html">Learn more &rarr;</a>
+                            <a href="https://github.com/Cognisn/spark" target="_blank" rel="noopener">GitHub &rarr;</a>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <span class="card__label card__label--oss">Open Source</span>
+                        <h3 class="card__title"><a href="/projects/konfig.html">Konfig</a></h3>
+                        <p class="card__desc">Three foundational capabilities every Python application needs: layered settings management, pluggable secrets handling (OS keyring, AES, AWS), and structured logging — with an optional lightweight app lifecycle context manager.</p>
+                        <div class="card__tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">Configuration</span>
+                            <span class="tag">Secrets</span>
+                            <span class="tag">MIT</span>
+                        </div>
+                        <div class="card__meta">
+                            <a href="/projects/konfig.html">Learn more &rarr;</a>
+                            <a href="https://github.com/Cognisn/konfig" target="_blank" rel="noopener">GitHub &rarr;</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            &copy; 2026 Cognisn. All rights reserved.
+        </div>
+    </footer>
+
+    <script src="js/site.js"></script>
+</body>
+</html>

@@ -1,0 +1,6 @@
+docs/
+build.py
+requirements.txt
+blog/posts/
+.gitignore
+CLAUDE.md

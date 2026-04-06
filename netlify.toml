@@ -1,5 +1,9 @@
 [build]
+  command = "pip install -r requirements.txt && python3 build.py"
   publish = "."
+
+[build.environment]
+  PYTHON_VERSION = "3.12"
 
 [[headers]]
   for = "/*"
@@ -9,8 +13,8 @@
     Referrer-Policy = "strict-origin-when-cross-origin"
     Permissions-Policy = "camera=(), microphone=(), geolocation=()"
 
-# SPA-style fallback (useful when we add routing later)
+# Trailing slash normalisation for blog
 [[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
+  from = "/blog"
+  to = "/blog/"
+  status = 301

@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spark — Cognisn</title>
+    <meta name="description" content="Spark — A secure, multi-provider AI research platform with MCP tool integration, persistent memory, and autonomous scheduled actions.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 130 130'%3E%3Crect width='130' height='130' rx='28' fill='%23080e1e'/%3E%3Cdefs%3E%3ClinearGradient id='a' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0%25' stop-color='%233a78c4'/%3E%3Cstop offset='50%25' stop-color='%235aaae8'/%3E%3Cstop offset='100%25' stop-color='%233a78c4'/%3E%3C/linearGradient%3E%3CradialGradient id='b' cx='40%25' cy='35%25' r='60%25'%3E%3Cstop offset='0%25' stop-color='%237ac0f8'/%3E%3Cstop offset='100%25' stop-color='%234a90d8'/%3E%3C/radialGradient%3E%3C/defs%3E%3Cg transform='translate(65,65)'%3E%3Cpath d='M32-48A48 48 0 1 0 32 48' stroke='url(%23a)' stroke-width='4' fill='none' stroke-linecap='round'/%3E%3Ccircle cx='32' cy='-48' r='5' fill='%236ab8f0'/%3E%3Ccircle cx='32' cy='48' r='5' fill='%235aaae8' opacity='.85'/%3E%3Ccircle cx='12' cy='0' r='9' fill='url(%23b)'/%3E%3Ccircle cx='12' cy='0' r='4.5' fill='%23a0d8ff' opacity='.9'/%3E%3C/g%3E%3C/svg%3E">
+
+    <link rel="stylesheet" href="../css/theme.css">
+    <link rel="stylesheet" href="../css/site.css">
+</head>
+<body>
+
+    <nav class="site-nav">
+        <div class="container">
+            <a href="/" class="site-nav__brand">
+                <svg width="110" height="28" viewBox="0 0 440 110" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="arc-n" x1="0" y1="0" x2="1" y2="1">
+                            <stop offset="0%" stop-color="#3a78c4"/>
+                            <stop offset="50%" stop-color="#5aaae8"/>
+                            <stop offset="100%" stop-color="#3a78c4"/>
+                        </linearGradient>
+                        <radialGradient id="dot-n" cx="40%" cy="35%" r="60%">
+                            <stop offset="0%" stop-color="#7ac0f8"/>
+                            <stop offset="100%" stop-color="#4a90d8"/>
+                        </radialGradient>
+                    </defs>
+                    <g transform="translate(55,55)">
+                        <line x1="-55" y1="0" x2="-36" y2="0" stroke="#4a8abf" stroke-width="0.7" opacity="0.3"/>
+                        <line x1="36" y1="0" x2="80" y2="0" stroke="#4a8abf" stroke-width="0.7" opacity="0.15"/>
+                        <line x1="0" y1="0" x2="26" y2="-33" stroke="#4a8abf" stroke-width="0.7" opacity="0.22"/>
+                        <line x1="0" y1="0" x2="26" y2="33" stroke="#4a8abf" stroke-width="0.7" opacity="0.22"/>
+                        <path d="M25 -38 A38 38 0 1 0 25 38" stroke="url(#arc-n)" stroke-width="3" fill="none" stroke-linecap="round"/>
+                        <circle cx="25" cy="-38" r="3.5" fill="#6ab8f0"/>
+                        <circle cx="25" cy="38" r="3.5" fill="#5aaae8" opacity="0.85"/>
+                        <circle cx="10" cy="0" r="7" fill="url(#dot-n)"/>
+                        <circle cx="10" cy="0" r="3.5" fill="#a0d8ff" opacity="0.9"/>
+                    </g>
+                    <text x="108" y="70" font-family="'Syne', sans-serif" font-weight="600" font-size="54" fill="#5a9fd4" letter-spacing="-0.5">cognisn</text>
+                </svg>
+            </a>
+            <button class="site-nav__toggle" aria-label="Toggle navigation">&#9776;</button>
+            <ul class="site-nav__links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/projects.html" class="active">Projects</a></li>
+                <li><a href="/blog/">Blog</a></li>
+                <li><a href="/about.html">About</a></li>
+                <li><a href="/contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <div class="article" style="max-width: 840px;">
+            <!-- Project Header -->
+            <div class="article__header">
+                <p class="section-label"><a href="/projects.html" style="color: inherit; text-decoration: none;">&larr; Projects</a></p>
+                <h1 class="article__title">Spark</h1>
+                <p style="font-size: 1.0625rem; color: var(--app-text-secondary); margin-bottom: 1.25rem;">A secure, multi-provider AI research platform with a modern web interface. Chat with Claude, Gemini, Grok, Llama, and Mistral — with MCP tool integration, voice input, persistent memory, and autonomous scheduled actions.</p>
+                <div class="card__tags" style="margin-bottom: 1rem;">
+                    <span class="tag">Python</span>
+                    <span class="tag">FastAPI</span>
+                    <span class="tag">AI</span>
+                    <span class="tag">MCP</span>
+                </div>
+                <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                    <a href="https://github.com/Cognisn/spark" target="_blank" rel="noopener" class="btn btn-primary">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                        View on GitHub
+                    </a>
+                    <a href="#installation" class="btn btn-outline">Install</a>
+                </div>
+            </div>
+
+            <!-- Content -->
+            <div class="article__body">
+
+                <h2>Overview</h2>
+                <p>Spark is a personal AI research kit that brings together multiple LLM providers under a single, clean web interface. Rather than switching between different AI chat services, Spark lets you work with all of them in one place — with powerful additions like tool use, voice input, persistent memory, and scheduled autonomous actions.</p>
+                <p>It's built with security in mind: API keys are stored in your OS keychain (never in config files), tool usage requires explicit permission, and a prompt inspection system watches for potential threats. Spark is rated all A's by SonarCloud — zero bugs, zero vulnerabilities, zero security hotspots — and backed by 398 automated tests across 19 test files.</p>
+
+                <h2>Supported Providers</h2>
+                <ul>
+                    <li><strong>Anthropic</strong> — Claude models with prompt caching support and cache stats display</li>
+                    <li><strong>AWS Bedrock</strong> — Claude and other foundation models via AWS</li>
+                    <li><strong>Google Gemini</strong> — Dynamic model discovery from the Gemini API</li>
+                    <li><strong>Ollama</strong> — Local models with automatic model detection</li>
+                    <li><strong>X.AI</strong> — Grok models via OpenAI-compatible API</li>
+                </ul>
+                <p>All providers support dynamic model discovery with caching and static fallback, plus transient error retry with exponential backoff.</p>
+
+                <h2>Features</h2>
+
+                <h3>Conversations</h3>
+                <ul>
+                    <li>Real-time token streaming via Server-Sent Events</li>
+                    <li>Intelligent context compaction with LLM-driven summarisation</li>
+                    <li>Conversation linking for shared context across conversations</li>
+                    <li>RAG retrieval from compacted history</li>
+                    <li>Per-conversation settings: model, instructions, RAG, compaction thresholds</li>
+                    <li>Model badge on each response showing which model generated it</li>
+                    <li>Model selector modal with search, grouping by provider, and tool support indicators</li>
+                    <li>Favourites with star toggle</li>
+                    <li>Export as Markdown, HTML, CSV, or JSON</li>
+                </ul>
+
+                <h3>Tools &amp; MCP Integration</h3>
+                <ul>
+                    <li><strong>Tool Activity Sidecar Panel</strong> — dedicated right-side panel for tool calls with timestamps, expandable parameters and results</li>
+                    <li>Full <strong>Model Context Protocol</strong> support via stdio, HTTP streamable, and SSE transports with hot-reload</li>
+                    <li><strong>Built-in tools:</strong> filesystem (read/write), documents (Word, Excel, PDF, PowerPoint), archives (ZIP, TAR), web search/fetch, datetime</li>
+                    <li><strong>Web search engines:</strong> DuckDuckGo (default, no API key), Brave Search, Google (SerpAPI), Bing (Azure), SearXNG (self-hosted)</li>
+                    <li>22 built-in tool documentation files with a <code>get_tool_documentation</code> tool for LLM self-reference</li>
+                    <li>Per-conversation tool enable/disable for embedded and MCP tools</li>
+                    <li>Tool permission system with Allow Once, Always Allow, and Deny</li>
+                    <li>Category-based approval (approving web_search also approves web_fetch)</li>
+                </ul>
+
+                <h3>Voice</h3>
+                <ul>
+                    <li><strong>Speech-to-text input</strong> — mic button for manual dictation</li>
+                    <li><strong>Voice Conversation Mode</strong> — full hands-free operation via headset button</li>
+                    <li>Auto-send after 1.5 second silence, TTS reads the response, then auto-resumes listening</li>
+                    <li>Voice selector dropdown with all available browser TTS voices (persisted)</li>
+                </ul>
+
+                <h3>Persistent Memory</h3>
+                <ul>
+                    <li>Semantic vector search via sentence-transformers embeddings</li>
+                    <li>Categories: facts, preferences, projects, instructions, relationships</li>
+                    <li>Auto-retrieval of relevant memories injected into conversation context</li>
+                    <li>Proactive memory storage when you share information</li>
+                    <li>Memory management page with stats, edit, delete, and bulk delete</li>
+                    <li>Import/export as JSON</li>
+                </ul>
+
+                <h3>Autonomous Actions</h3>
+                <ul>
+                    <li>Scheduled AI tasks with cron or one-off schedules</li>
+                    <li>AI-assisted action creation — describe what you want, Spark builds it</li>
+                    <li>Context modes: fresh (clean each run) or cumulative (previous results in prompt)</li>
+                    <li>Failure tracking with auto-disable after threshold</li>
+                    <li>Run history with status, results, and token usage</li>
+                    <li>System tray daemon with stats polling (macOS, Windows)</li>
+                </ul>
+
+                <h3>Web Interface</h3>
+                <ul>
+                    <li>Cognisn design system (Bootstrap 5.3, dark/light theme with persistence)</li>
+                    <li>Dashboard with provider status cards and clickable provider models modal</li>
+                    <li>Settings page with providers, database, interface, conversation, security, tools, and MCP configuration</li>
+                    <li>Global system instructions</li>
+                    <li>Settings lock with password protection</li>
+                    <li>Built-in searchable user guide</li>
+                    <li>Auto-update checker with rendered release notes and download link</li>
+                </ul>
+
+                <h3>Security</h3>
+                <ul>
+                    <li>API keys stored in OS keychain via <a href="/projects/konfig.html">Konfig</a> — never in config files</li>
+                    <li>Prompt inspection with pattern matching (injection, jailbreak, PII detection)</li>
+                    <li>Configurable security levels: basic, standard, or strict</li>
+                    <li>Configurable actions: block, warn, or log only</li>
+                    <li>Session-based authentication with HTTPOnly, SameSite, Secure cookies</li>
+                    <li>Per-conversation, per-tool permission system</li>
+                </ul>
+
+                <h3>Database</h3>
+                <ul>
+                    <li>SQLite (default), MySQL, PostgreSQL, and MSSQL</li>
+                    <li>Idempotent schema with automatic migrations</li>
+                </ul>
+
+                <!-- Screenshots -->
+                <h2>Screenshots</h2>
+                <div class="screenshot-grid">
+                    <!-- Replace src with actual screenshots from Spark -->
+                    <figure class="screenshot">
+                        <img src="/images/spark/conversation-dark.png" alt="Spark conversation interface in dark mode">
+                        <figcaption>Conversation view — dark theme with streaming response</figcaption>
+                    </figure>
+                    <figure class="screenshot">
+                        <img src="/images/spark/conversation-light.png" alt="Spark conversation interface in light mode">
+                        <figcaption>Conversation view — light theme</figcaption>
+                    </figure>
+                    <figure class="screenshot">
+                        <img src="/images/spark/dashboard.png" alt="Spark dashboard with provider status">
+                        <figcaption>Dashboard — provider status cards with model counts</figcaption>
+                    </figure>
+                    <figure class="screenshot">
+                        <img src="/images/spark/tool-sidecar.png" alt="Tool activity sidecar panel">
+                        <figcaption>Tool Activity Sidecar — expandable tool calls with parameters and results</figcaption>
+                    </figure>
+                    <figure class="screenshot">
+                        <img src="/images/spark/tools-mcp.png" alt="MCP tool integration panel">
+                        <figcaption>MCP tool integration — configure and manage tool servers</figcaption>
+                    </figure>
+                    <figure class="screenshot">
+                        <img src="/images/spark/memory.png" alt="Persistent memory interface">
+                        <figcaption>Memory system — persistent facts and semantic search</figcaption>
+                    </figure>
+                    <figure class="screenshot">
+                        <img src="/images/spark/settings.png" alt="Settings and provider configuration">
+                        <figcaption>Settings — provider configuration and API key management</figcaption>
+                    </figure>
+                    <figure class="screenshot">
+                        <img src="/images/spark/actions.png" alt="Autonomous scheduled actions">
+                        <figcaption>Autonomous actions — scheduled tasks with execution history</figcaption>
+                    </figure>
+                </div>
+
+                <h2 id="installation">Download &amp; Install</h2>
+
+                <p>Spark ships with pre-built installers that include a bundled Python runtime — no dependencies required. Available as a signed DMG for macOS (ARM64 and Intel), an NSIS installer for Windows, and via pip for Linux. Alternatively, install from PyPI on any platform if you prefer to manage your own Python environment.</p>
+
+                <!-- Dynamic releases widget — populated by CognisReleases -->
+                <div id="spark-releases"></div>
+
+                <h2>Getting Started</h2>
+
+                <p>Launch Spark with a single command:</p>
+
+                <pre><code>spark</code></pre>
+
+                <p>On first run, Spark will create a configuration file, start a web server on a random available port, and open your browser for initial setup. From there, configure your LLM providers and start chatting.</p>
+
+                <h3>Configuration Locations</h3>
+                <ul>
+                    <li><strong>macOS:</strong> <code>~/Library/Application Support/spark/</code></li>
+                    <li><strong>Linux:</strong> <code>~/.config/spark/</code></li>
+                    <li><strong>Windows:</strong> <code>%APPDATA%/spark/</code></li>
+                </ul>
+
+                <h3>Keyboard Shortcuts</h3>
+                <ul>
+                    <li><code>Ctrl/Cmd + K</code> — Go to Conversations</li>
+                    <li><code>Ctrl/Cmd + N</code> — New Conversation</li>
+                    <li><code>Ctrl/Cmd + ,</code> — Open Settings</li>
+                    <li><code>Enter</code> — Send message</li>
+                    <li><code>Shift + Enter</code> — New line</li>
+                </ul>
+
+                <h2>Architecture</h2>
+                <p>Spark is built on <strong>FastAPI</strong> with a Bootstrap 5 frontend using the Cognisn design system. The backend manages conversation context with compaction and memory retrieval, routes requests to LLM providers, and orchestrates MCP servers and built-in tools. Settings and secrets management is handled by <a href="/projects/konfig.html">Konfig</a>.</p>
+                <p>Supports SQLite (default), MySQL, PostgreSQL, and MSSQL with idempotent schema and automatic migrations. macOS installers are signed and notarized. Distributed via PyApp with a Cognisn fork splash screen.</p>
+
+                <h2>Documentation</h2>
+                <p>Spark includes 16 comprehensive built-in docs (with Mermaid diagrams) covering installation, configuration, providers, conversations, tools, MCP, memory, actions, voice, web search, security, auto-update, architecture, development, and API reference. A searchable user guide is also accessible directly from within the application.</p>
+
+                <h2>Licence</h2>
+                <p>MIT Licence with Commons Clause — free for personal and educational use. Commercial use requires a licence from the author.</p>
+
+                <hr>
+
+                <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                    <a href="https://github.com/Cognisn/spark" target="_blank" rel="noopener" class="btn btn-primary">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                        View on GitHub
+                    </a>
+                    <a href="https://github.com/Cognisn/spark/issues" target="_blank" rel="noopener" class="btn btn-outline">Report an Issue</a>
+                    <a href="/projects.html" class="btn btn-outline">&larr; All Projects</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            &copy; 2026 Cognisn. All rights reserved.
+        </div>
+    </footer>
+
+    <script src="../js/site.js"></script>
+    <script src="../js/lightbox.js"></script>
+    <script src="../js/releases.js"></script>
+    <script>
+        CognisReleases.init({
+            repo: 'Cognisn/spark',
+            container: '#spark-releases',
+            pypi: 'cognisn-spark',
+            pypiExtras: ['postgresql', 'mysql', 'mssql', 'all-databases'],
+            platforms: [
+                { label: 'macOS (Apple Silicon)', os: 'macos', arch: 'arm64',  format: 'dmg',      icon: 'apple' },
+                { label: 'macOS (Intel)',         os: 'macos', arch: 'x86_64', format: 'dmg',      icon: 'apple' },
+                { label: 'Windows',               os: 'windows', arch: 'x86_64', format: 'exe',    icon: 'windows' },
+                { label: 'Linux (x86_64)',        os: 'linux', arch: 'x86_64', format: 'AppImage', icon: 'linux' },
+                { label: 'Linux (ARM64)',         os: 'linux', arch: 'arm64',  format: 'bin',      icon: 'linux' }
+            ]
+        });
+    </script>
+</body>
+</html>
