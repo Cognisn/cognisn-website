@@ -7,7 +7,7 @@ tags:
   - Release
   - AI
   - Open Source
-og_image: /images/og-spark-release.png
+og_image: /images/og-spark-v010.png
 ---
 
 After months of late nights, weekend coding sessions, and way too many alpha builds — Spark v0.1.0 is here. The first production release of a project that started as "what if I could talk to every AI model from one place?" and turned into something significantly more ambitious.
