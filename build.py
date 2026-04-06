@@ -177,6 +177,7 @@ def parse_post(filepath):
         "url": f"/blog/{slug}.html",
         "body_html": body_html,
         "author": meta.get("author", "Matthew Westwood-Hill"),
+        "og_image": meta.get("og_image", ""),
     }
 
 
@@ -186,7 +187,8 @@ def generate_article_html(post):
     """Generate a full HTML page for a blog article."""
     tags_html = "".join(f'<span class="tag">{t}</span>' for t in post["tags"])
 
-    og_image = f'<meta property="og:image" content="{SITE_URL}/images/og-card.png">'
+    og_img_path = post["og_image"] if post["og_image"] else "/images/og-card.png"
+    og_image = f'<meta property="og:image" content="{SITE_URL}{og_img_path}">'
 
     giscus_html = ""
     if GISCUS_REPO_ID and GISCUS_CATEGORY_ID:
